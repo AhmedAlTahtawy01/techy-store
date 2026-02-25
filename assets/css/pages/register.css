@@ -68,6 +68,10 @@
     background: green;
 }
 
+.auth-form-footer {
+    margin-top: 15px;
+}
+
 @media (min-width: 768px) {
     .auth-form {
         padding: 30px;

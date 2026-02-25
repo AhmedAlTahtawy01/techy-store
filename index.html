@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techy | Home</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/pages/index.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">Techy</a>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="pages/cart.html">Cart <span id="cartCount" class="badge">0</span></a></li>
+                    <li><a href="pages/profile.html">Profile</a></li>
+
+                    <li>
+                        <a href="pages/login.html" id="authLink">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="slider" aria-label="Featured promotions">
+        <div class="slide active">
+            <h2>Latest Gaming Consoles</h2>
+            <p>PlayStation5, Xbox and more at best prices</p>
+        </div>
+        <div class="slide">
+            <h2>Newest Smartphones</h2>
+            <p>Discover powerful devices with the latest technology</p>
+        </div>
+        <div class="slide">
+            <h2>Gaming Accessories</h2>
+            <p>Upgrade your setup with pro gear</p>
+        </div>
+
+        <button class="slider-btn prev" aria-label="Previous slide">&#10094;</button>
+        <button class="slider-btn next" aria-label="Next Slide">&#10095;</button>
+    </section>
+
+    <main id="main-content" class="container products-section">
+        <h2>Our Products</h2>
+
+        <div class="products-controls">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="phone">Phones</option>
+                <option value="console">Consoles</option>
+                <option value="accessory">Accessories</option>
+                <option value="laptop">Laptops</option>
+                <option value="device">Devices</option>
+            </select>
+
+            <select id="priceFilter">
+                <option value="all">All Prices</option>
+                <option value="0-500">0 - 500</option>
+                <option value="500-1000">500 - 1000</option>
+                <option value="1000-2000">1000 - 2000</option>
+                <option value="2000+">2000+</option>
+            </select>
+        </div>
+
+        <div id="productsContainer" class="products-grid">
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div>
+                <h3>Techy</h3>
+                <p>Your trusted tech marketplace</p>
+            </div>
+
+            <div>
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Contact</h4>
+                <p>Email: support@techy.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Techy. All rights reserved.
+        </div>
+    </footer>
+
+    <script type="module" src="assets/js/pages/index.js"></script>
+</body>
+
+</html>

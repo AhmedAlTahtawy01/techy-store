@@ -84,7 +84,7 @@ function validateConfirmPassword() {
     }
 
     if (value !== passwordInput.value) {
-        confirmPasswordError.textContent = "Passowrds do not match";
+        confirmPasswordError.textContent = "Passwords do not match";
         return false;
     }
 
@@ -175,7 +175,7 @@ form.addEventListener("submit", (e) => {
             return;
         }
 
-        successMessage.textContent = "Registeration successful";
+        successMessage.textContent = "Registration successful";
 
         setTimeout(() => {
             window.location.href = "login.html";

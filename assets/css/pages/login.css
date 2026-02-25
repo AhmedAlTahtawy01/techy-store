@@ -33,3 +33,7 @@
     cursor: pointer;
     color: var(--primary);
 }
+
+.auth-form-footer {
+    margin-top: 15px;
+}

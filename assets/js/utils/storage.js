@@ -1,5 +1,7 @@
 const USERS_KEY = "users";
 const SESSION_KEY = "session";
+const CART_PREFIX = "cart_";
+const GUEST_CART_KEY = "cart_guest";
 
 export function getUsers() {
     return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
@@ -56,6 +58,7 @@ export function loginUser(email, password) {
     }
 
     setSession(user);
+    mergeGuestCartIntoUser(user.id);
 
     return {
         success: true,
@@ -64,7 +67,8 @@ export function loginUser(email, password) {
 }
 
 export function setSession(user) {
-    localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+    const session = { id: user.id, name: user.name, email: user.email };
+    localStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 
 export function getSession() {
@@ -73,4 +77,48 @@ export function getSession() {
 
 export function logout() {
     localStorage.removeItem(SESSION_KEY);
+}
+
+function getCartKey() {
+    const session = getSession();
+    return session ? `${CART_PREFIX}${session.id}` : GUEST_CART_KEY;
+}
+
+export function getCart() {
+    const key = getCartKey();
+    return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+export function saveCart(cart) {
+    const key = getCartKey();
+    localStorage.setItem(key, JSON.stringify(cart));
+}
+
+function getCartByKey(key) {
+    return JSON.parse(localStorage.getItem(key)) || [];
+}
+
+function saveCartByKey(key, cart) {
+    localStorage.setItem(key, JSON.stringify(cart));
+}
+
+function mergeGuestCartIntoUser(userId) {
+    const guestCart = getCartByKey(GUEST_CART_KEY);
+    if (guestCart.length === 0) return;
+
+    const userCartKey = `${CART_PREFIX}${userId}`;
+    const userCart = getCartByKey(userCartKey);
+
+    const merged = [...userCart];
+    for (const guestItem of guestCart) {
+        const existing = merged.find(item => item.id === guestItem.id);
+        if (existing) {
+            existing.qty += guestItem.qty;
+        } else {
+            merged.push({ id: guestItem.id, qty: guestItem.qty });
+        }
+    }
+
+    saveCartByKey(userCartKey, merged);
+    localStorage.removeItem(GUEST_CART_KEY);
 }

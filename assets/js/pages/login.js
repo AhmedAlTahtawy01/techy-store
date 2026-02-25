@@ -1,4 +1,7 @@
-import { loginUser, getSession } from "../utils/storage.js";
+import { redirectIfAuthenticated } from "../utils/authGuard.js";
+import { loginUser } from "../utils/storage.js";
+
+redirectIfAuthenticated("../index.html");
 
 const form = document.getElementById("loginForm");
 
@@ -7,11 +10,6 @@ const passwordInput = document.getElementById("password");
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
 const successMessage = document.getElementById("successMessage");
-
-const session = getSession();
-if (session) {
-    window.location.href = "../index.html";
-}
 
 function validateEmail() {
     const value = emailInput.value.trim();
