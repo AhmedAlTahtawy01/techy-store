@@ -1,3 +1,5 @@
+import { registerUser } from "../utils/storage";
+
 const form = document.getElementById("registerForm");
 
 const nameInput = document.getElementById("name");
@@ -95,22 +97,6 @@ function validateConfirmPassword() {
     return true;
 }
 
-function saveUser(user) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const exists = users.some(u => u.email.toLowerCase() === user.email.toLowerCase());
-
-    if (exists) {
-        emailError.textContent = "Email already registered";
-        return false;
-    }
-
-    users.push(user);
-
-    localStorage.setItem("users", JSON.stringify(users));
-    return true;
-}
-
 passwordInput.addEventListener("input", () => {
     validatePassword();
 
@@ -185,8 +171,14 @@ form.addEventListener("submit", (e) => {
             password: hashPassword(passwordInput.value)
         };
 
-        const saved = saveUser(user);
-        if (!saved) {
+        const result = registerUser({
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: passwordInput.value
+        });
+
+        if (!result.success) {
+            email.emailError.textContent = result.message;
             return;
         }
 
