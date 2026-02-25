@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techy | Contact</title>
+    <link rel="icon" href="../assets/imgs/logo.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/index.css">
+    <link rel="stylesheet" href="../assets/css/pages/contact.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/imgs/logo.png" alt="" class="logo-img">
+                <span class="logo-text">Techy</span>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart <span id="cartCount" class="badge">0</span></a></li>
+                    <li><a href="profile.html" id="profileLink">Profile</a></li>
+                    <li>
+                        <a href="login.html" id="authLink">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container contact-page">
+        <h1 class="contact-title">Contact Us</h1>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Have a question or feedback? We'd love to hear from you.</p>
+                <ul class="contact-details">
+                    <li><strong>Email:</strong> support@techy.com</li>
+                    <li><strong>Address:</strong> 123 Tech Street, Digital City</li>
+                </ul>
+            </div>
+
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="contactName">Name</label>
+                    <input type="text" id="contactName" placeholder="Your name" required>
+                    <small class="error" id="nameError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" placeholder="your@email.com" required>
+                    <small class="error" id="emailError"></small>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" rows="5" placeholder="Your message..." required></textarea>
+                    <small class="error" id="messageError"></small>
+                </div>
+                <button type="submit" class="btn btn-submit">Send Message</button>
+                <p id="contactSuccess" class="success"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div>
+                <a href="../index.html" class="footer-logo">
+                    <img src="../assets/imgs/logo.png" alt="" class="footer-logo-img">
+                    <span class="footer-logo-text">Techy</span>
+                </a>
+                <p>Your trusted tech marketplace</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>Email: support@techy.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Techy. All rights reserved.
+        </div>
+    </footer>
+
+    <script type="module" src="../assets/js/pages/contact.js"></script>
+</body>
+
+</html>

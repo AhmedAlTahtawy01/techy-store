@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techy | Cart</title>
+    <title>Techy | Product</title>
     <link rel="icon" href="../assets/imgs/logo.png" type="image/png">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/pages/index.css">
-    <link rel="stylesheet" href="../assets/css/pages/cart.css">
+    <link rel="stylesheet" href="../assets/css/pages/product.css">
 </head>
 
 <body>
@@ -35,34 +35,13 @@
         </div>
     </header>
 
-    <main id="main-content" class="container cart-page">
-        <h1 class="cart-title">Your Cart</h1>
-
-        <div id="cartItems" class="cart-items">
-            <!-- Rendered by cart.js -->
-        </div>
-
-        <div id="cartEmpty" class="cart-empty" style="display: none;">
-            <p>Your cart is empty</p>
-            <a href="../index.html" class="btn-shop">Continue Shopping</a>
-        </div>
-
-        <div id="cartSummary" class="cart-summary" style="display: none;">
-            <div class="cart-total">
-                <span class="total-label">Total:</span>
-                <span id="totalAmount" class="total-amount">$0</span>
-            </div>
-            <button type="button" id="buyNowBtn" class="buy-now-btn">Buy Now</button>
+    <main id="main-content" class="container product-page">
+        <div id="productContent" class="product-detail"></div>
+        <div id="productNotFound" class="product-not-found" style="display: none;">
+            <h2>Product not found</h2>
+            <a href="../index.html" class="btn-back">← Back to Products</a>
         </div>
     </main>
-
-    <div id="orderPopup" class="popup-overlay" aria-hidden="true">
-        <div class="popup-content">
-            <h3>Order Shipped!</h3>
-            <p>Your order has been shipped successfully. Thank you for shopping with Techy!</p>
-            <button type="button" id="closePopupBtn" class="popup-close-btn">OK</button>
-        </div>
-    </div>
 
     <footer class="footer">
         <div class="container footer-container">
@@ -90,7 +69,7 @@
         </div>
     </footer>
 
-    <script type="module" src="../assets/js/pages/cart.js"></script>
+    <script type="module" src="../assets/js/pages/product.js"></script>
 </body>
 
 </html>

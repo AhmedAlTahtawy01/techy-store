@@ -142,13 +142,14 @@ productsContainer.addEventListener("click", (e) => {
     }, 1000);
 });
 
+const sliderTrack = document.querySelector(".slider-track");
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 
 function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-    });
+    if (sliderTrack) {
+        sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+    }
 }
 
 function nextSlide() {
