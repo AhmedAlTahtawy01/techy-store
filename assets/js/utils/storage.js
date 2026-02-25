@@ -29,12 +29,14 @@ export function registerUser({ name, email, password }) {
     const users = getUsers();
     const newUser = {
         id: crypto.randomUUID(),
-        name,
-        email,
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
         password: hashPassword(password)
     };
 
     users.push(newUser);
+
+    setUsers(users);
 
     return {
         success: true,

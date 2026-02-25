@@ -1,4 +1,4 @@
-import { registerUser } from "../utils/storage";
+import { registerUser } from "../utils/storage.js"
 
 const form = document.getElementById("registerForm");
 
@@ -15,11 +15,6 @@ const passwordError = document.getElementById("passwordError");
 const confirmPasswordError = document.getElementById("confirmPasswordError");
 
 const successMessage = document.getElementById("successMessage");
-
-// Just simulating the hashing of the password
-function hashPassword(password) {
-    return btoa(password);
-}
 
 // Required & At least 3 characters
 function validateName() {
@@ -159,18 +154,16 @@ document.querySelectorAll(".toggle-password").forEach(btn => {
 
 
 form.addEventListener("submit", (e) => {
-
     e.preventDefault();
+
+    nameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
 
     const valid = validateName() && validateEmail() && validatePassword() && validateConfirmPassword();
 
     if (valid) {
-        const user = {
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            password: hashPassword(passwordInput.value)
-        };
-
         const result = registerUser({
             name: nameInput.value.trim(),
             email: emailInput.value.trim(),
@@ -178,7 +171,7 @@ form.addEventListener("submit", (e) => {
         });
 
         if (!result.success) {
-            email.emailError.textContent = result.message;
+            emailError.textContent = result.message;
             return;
         }
 
