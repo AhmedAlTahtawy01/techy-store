@@ -3,8 +3,10 @@ import { getSession, logout, getCart, saveCart } from "../utils/storage.js";
 
 const session = getSession();
 const authLink = document.getElementById("authLink");
+const profileLink = document.getElementById("profileLink");
 
 if (session) {
+    profileLink.textContent = session.name;
     authLink.textContent = "Logout";
     authLink.href = "#";
 
@@ -15,6 +17,7 @@ if (session) {
     });
 }
 else {
+    profileLink.textContent = "Profile";
     authLink.textContent = "Login";
     authLink.href = "pages/login.html";
 }

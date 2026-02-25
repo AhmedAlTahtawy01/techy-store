@@ -45,6 +45,18 @@ button {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
@@ -52,7 +64,11 @@ button {
     letter-spacing: -0.02em;
 }
 
-.logo:hover {
+.logo:hover .logo-img {
+    opacity: 0.9;
+}
+
+.logo:hover .logo-text {
     color: #7dd3fc;
 }
 
@@ -354,12 +370,32 @@ button {
     padding-bottom: 32px;
 }
 
-.footer h3 {
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.footer-logo-img {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.footer-logo-text {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
     color: #38bdf8;
-    margin-bottom: 8px;
+}
+
+.footer-logo:hover .footer-logo-img {
+    opacity: 0.9;
+}
+
+.footer-logo:hover .footer-logo-text {
+    color: #7dd3fc;
 }
 
 .footer h4 {
@@ -395,6 +431,14 @@ button {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+    .logo-img {
+        height: 34px;
+    }
+
+    .logo-text {
+        font-size: 1.25rem;
+    }
+
     .navbar-container {
         flex-direction: column;
         gap: 12px;
